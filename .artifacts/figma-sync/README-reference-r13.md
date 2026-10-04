@@ -1,5 +1,17 @@
 # E3 參考畫面驗收與額度中斷紀錄
 
+## 最新續傳結果
+
+B 第 14 批 `plan-20261004T152140Z-bfa45492` 已沿原 request 完成最後兩塊唯讀續傳，並經正式 CLI `record` 得到 `verified`：planned/applied 各 12、managedSlots 356、releasedSlots 13。此次使用 2 次唯讀 MCP，沒有新增 mutation。receipt digest 為 `b656a0203e42d64944cdee8cd1e1fb67885a754af9bb91570d345e76718e1cd8`；不可重送此 run 的 apply。
+
+新增補充包 `e3-reference-evidence-r13-b14-resumed.zip`，466,464 bytes，SHA-256 為 `c3f000c2f0f574f332a7a8a820f9c5db79147d56a4c71f52618e22f5fc1cbe2c`。內含該 run 的完整 23 個檔案、當前 B receipt，以及逐檔長度／SHA-256 的 `manifest.json`，共 25 個 entries；已逐 entry 核對檔名、長度與雜湊。路徑沿既有 `b/.artifacts/figma-sync/` 與 `b/deploy/project/figma/receipts/` 慣例，不包含其他 runs。
+
+原 quota-stop ZIP 保持原樣，保存中斷時點；新舊包應分開解壓，下面的 43-run 驗證器及恢復說明只對應舊包，不表示 B14 目前仍待續傳。此次只核補充包的檔名與雜湊，未重跑既有 43-run 驗證器。
+
+後續 295 批 TEST 參考頁排程已停止，不再作為 E4 正式拆分前置；這是批次數，不是 Figma 呼叫數。正式檔仍未搬移，E4 的正式身分、引用、發布／接受及保護差異驗收仍須完成。
+
+## 原 quota-stop 封存時點
+
 這份隔離 TEST 證據屬於 issue #23，不表示 E 已完成。程式版本為 `334a5dbbb2ea53506808ec9d6061a70131cddfe6`，PR #35 仍未合併。
 
 `e3-reference-evidence-r13-quota-stop.zip` 共 2,370 個檔案、38,389,434 bytes，SHA-256 為 `45156e0cbbece2951f7ce2837542345c5700fe62909119d78d268fecb609a4be`。不包含正式 CookHome 備份、Front 或業務 POC。
